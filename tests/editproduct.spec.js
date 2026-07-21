@@ -26,6 +26,6 @@ test("Create Product", async ({page, managerpage }) => {
         supplier,
         date
     );
-//  await managerpage.productpage.verifyProductPresent(productName);
+ await managerpage.productpage.verifyProductPresent(productName);
  await managerpage.editproductpage.editProduct(category1);
 });

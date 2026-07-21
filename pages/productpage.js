@@ -23,6 +23,7 @@ export class Product {
         this.productTable = page.locator("//table/tbody");
         this.detailsbtn = page.locator("(//a[@class='btn btn-primary bg-gradient-primary dropdown no-arrow'])[1]")
         this.editbtn = page.locator("(//a[contains(.,'Edit')])[1]")
+        this.entriesdd = page.locator("//select[@class='custom-select custom-select-sm form-control form-control-sm']")
     
     }
     async enterDate(date) {
@@ -85,6 +86,7 @@ export class Product {
         await this.selectSupplier(supplier);
         await this.enterDate(date);
         await this.clickSave();
+        await this.entriesdd.selectOption("100")
     }
     async searchProduct(productName) {
         await this.searchTf.fill(productName);

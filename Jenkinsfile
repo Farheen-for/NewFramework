@@ -1,6 +1,6 @@
+
 pipeline {
     agent any
-
     parameters {
         choice(
             name: 'TEST_TYPE',
@@ -8,7 +8,6 @@ pipeline {
             description: 'Select the test suite to execute'
         )
     }
-
     stages {
 
         stage('Install Dependencies') {
@@ -17,7 +16,6 @@ pipeline {
                 bat 'npx playwright install'
             }
         }
-
         stage('Execute Tests') {
             steps {
                 script {
@@ -32,7 +30,6 @@ pipeline {
             }
         }
     }
-
     post {
         always {
             archiveArtifacts artifacts: 'playwright-report/**', allowEmptyArchive: true
@@ -46,7 +43,6 @@ pipeline {
                 reportName: 'Playwright Report'
             ])
         }
-
         success {
             echo 'Tests executed successfully.'
         }
